@@ -1,7 +1,7 @@
 # sg-climate-wedges
 Singapore Climate Wedges (2020 to 2050)
 
-A computational techno-economic framework downscaling the updated **Global Climate Stabilisation Wedges (Johnson & Staffell, 2026)** to model, quantify, and evaluate multi-sector decarbonisation pathways for **Singapore's 2050 Net-Zero target**.
+A quantitative index decomposition analysis framework downscaling the updated **Global Climate Stabilisation Wedges (Johnson & Staffell, 2026)** to model, quantify, and evaluate multi-sector decarbonisation pathways for **Singapore's 2050 Net-Zero target**.
 
 ---
 
