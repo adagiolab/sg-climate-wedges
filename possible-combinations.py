@@ -15,10 +15,18 @@ def get_sector_polynomial(capacities: list[int]) -> list[int]:
 
 # 1. Define strategy capacities per sector for Singapore
 singapore_sectors = {
-    "Power": [19, 13, 1, 1, 19, 18, 4, 19], 
+    "Power": [20, 19, 16, 1, 16, 12, 4, 16], 
     "Industry": [1, 20], 
     "Transport": [1, 1, 1, 1], 
     "Buildings": [1, 1], 
+}
+
+# Define maximum allowed wedges per sector
+sector_max_caps = {
+    "Power": 17,
+    "Industry": 22, 
+    "Transport": 2,
+    "Buildings": 1,
 }
 
 # 2. Build Sector Tables
@@ -26,7 +34,7 @@ sector_tables = {
     sec: get_sector_polynomial(caps) for sec, caps in singapore_sectors.items()
 }
 
-# 3. Convolve across sectors to get economy-wide total
+# 3. Get economy-wide total
 economy_dp = [1]
 for sec, table in sector_tables.items():
     new_len = len(economy_dp) + len(table) - 1
