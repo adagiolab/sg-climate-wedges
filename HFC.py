@@ -15,7 +15,7 @@ hist_emissions = {
 # 2. MODEL PARAMETERS (NID Page 114-115)
 # ----------------------------------------------------------------------
 L = 10                  # Average lifespan (years)
-x = 0.10                # Operational leak rate (10%/year)
+x = 0.125               # Emissions factor (i.e. Operational leak rate) (12.5%/year)
 p = 1.00                # Residual charge at disposal (100%)
 eta = 0.80              # Recovery efficiency (80%)
 g_bau = 0.03            # Projected BAU growth rate (3%/year)
