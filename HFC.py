@@ -76,6 +76,18 @@ def run_simulation(scenario='kigali_singapore'):
         retiring_vintage = sim_inflows.get(t - L, 0.0)
         e_disp_t = retiring_vintage * (1.0 - eta) * p
         e_total_t = e_op_t + e_disp_t
+
+        if t in hist_emission:
+            e_total_t = hist_emissions[t]
+            model_calculated_total_components = e_op_t + e_disp_t
+            if model_calculated_total_components !=0:
+                scaling_factor = e_total_t / model_calculated_total_components
+                e_op_t = e_op_t * scaling_factor
+                e_disp_t = e_disp_t * scaling_factor
+            else:
+                pass
+        else:
+            e_total_t = e_op_t + e_disp_t
         
         records.append({
             'Year': t,
@@ -117,6 +129,16 @@ print("="*80 + "\n")
 # 6. GENERATE COMPARISON CHART
 # ----------------------------------------------------------------------
 plt.figure(figsize=(12, 6), dpi=300)
+
+hist_year_list = list(hist_emissions.keys())
+hist_values_list = list(hist_emissions.values())
+plt.plot(hist_years_list, hist_values_list, color='black', linewidth=2.5, label='Historical Emissions')
+
+last_hist_year = max(hist_emissions.keys())
+
+df_bau_proj = df_bau[df_bau['Year'] >= last_hist_year]
+df_kigali_proj = df_kigali[df_kigali['Year'] >= last_hist_year]
+df_phaseout_proj = df_phaseout[df_phaseout['Year'] >= last_hist_year]
 
 plt.plot(df_bau['Year'], df_bau['Total_Emissions'], color='#d62728', linestyle='--', linewidth=2, label='BAU')
 plt.plot(df_kigali['Year'], df_kigali['Total_Emissions'], color='#2ca02c', linewidth=2.5, label='Kigali Phase-Down')
