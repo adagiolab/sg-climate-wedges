@@ -3,6 +3,8 @@ Singapore Climate Wedges (2020 to 2050)
 
 A quantitative index decomposition analysis framework downscaling the updated Global Climate Stabilisation Wedges (Johnson & Staffell, 2026) to model, and quantify multi-sector climate mitigation pathways for Singapore's 2050 Net-Zero target.
 
+A copy of the python files is also available on [Colab](https://colab.research.google.com/drive/1kzYF9NHDTZvNo9WbDZE67R9ZXbtqi07v?usp=sharing).
+
 ---
 
 ## 📌 Overview
